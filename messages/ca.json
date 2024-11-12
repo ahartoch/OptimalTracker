@@ -1,0 +1,155 @@
+{
+  "navigation": {
+    "home": "Inici",
+    "record": "Registrar Esdeveniments",
+    "reports": "Veure Informes"
+  },
+  "settings": {
+    "title": "Configuració",
+    "language": "Idioma de la Interfície",
+    "clubEmblem": "Escut del Club",
+    "uploadImage": "Pujar Imatge",
+    "imageRecommendation": "Recomanat: Imatge quadrada, màx 1MB",
+    "save": "Desar Canvis",
+    "cancel": "Cancel·lar",
+    "clearData": {
+      "title": "Esborrar Dades de Partits",
+      "description": "Eliminar tots els partits registrats i començar de nou",
+      "button": "Esborrar Totes les Dades",
+      "confirmTitle": "Esborrar Totes les Dades de Partits?",
+      "confirmMessage": "Això eliminarà permanentment tots els partits registrats. Aquesta acció no es pot desfer.",
+      "confirm": "Sí, Esborrar Dades"
+    },
+    "categories": {
+      "title": "Categories de Partits",
+      "enterNew": "Introduir nova categoria",
+      "add": "Afegir"
+    }
+  },
+  "home": {
+    "title": "Registrador d'Esdeveniments de Futbol",
+    "subtitle": "Registra i analitza esdeveniments de partits de futbol amb facilitat",
+    "features": {
+      "recording": {
+        "title": "Registre en Temps Real",
+        "description": "Registra esdeveniments del partit mentre succeeixen amb posicionament precís"
+      },
+      "players": {
+        "title": "Gestió de Jugadors",
+        "description": "Controla substitucions i gestiona plantilles d'equips"
+      },
+      "analysis": {
+        "title": "Anàlisi de Partits",
+        "description": "Genera mapes de calor i informes detallats d'esdeveniments"
+      }
+    }
+  },
+  "match": {
+    "setup": {
+      "title": "Iniciar Nou Partit",
+      "homeTeam": "Equip Local",
+      "awayTeam": "Equip Visitant",
+      "enterTeamName": "Introdueix nom de l'equip",
+      "players": {
+        "title": "Afegir Jugadors",
+        "import": "Importar Jugadors",
+        "selectTeam": "Seleccionar Equip per Importar",
+        "pasteList": "Enganxa Llista de Jugadors",
+        "noPlayers": "No hi ha jugadors afegits",
+        "playerCount": "{{count}}/20 Jugadors"
+      },
+      "startMatch": "Començar Partit",
+      "category": "Categoria del Partit",
+      "selectCategory": "Seleccionar una categoria",
+      "enterCategory": "Introduir nom de categoria"
+    },
+    "events": {
+      "title": "Controls d'Esdeveniments",
+      "goal": "Gol",
+      "foul": "Falta",
+      "corner": "Córner",
+      "selectEvent": "Seleccionar Tipus d'Esdeveniment",
+      "selectTeam": "Seleccionar Equip",
+      "selectPlayer": "Seleccionar Jugador",
+      "clickToRecord": "Fes clic al camp per registrar un esdeveniment",
+      "list": {
+        "title": "Llista d'Esdeveniments",
+        "playerEvent": "{{name}} ({{number}})",
+        "unknownPlayer": "Jugador Desconegut",
+        "position": "({{x}}%, {{y}}%)",
+        "noEvents": "Encara no hi ha esdeveniments registrats"
+      }
+    },
+    "status": {
+      "finished": "Partit Finalitzat",
+      "firstHalf": "Primera Part",
+      "secondHalf": "Segona Part"
+    },
+    "substitutions": {
+      "title": "Finestres de Substitució",
+      "request": "Sol·licitar Substitució",
+      "windowsUsed": "{{count}}/3 utilitzades",
+      "matchFinished": "Partit finalitzat - no es permeten més substitucions"
+    },
+    "score": {
+      "home": "Local",
+      "away": "Visitant",
+      "vs": "vs"
+    },
+    "settings": {
+      "matchLength": "Durada del Partit",
+      "minutes": "minuts"
+    }
+  },
+  "reports": {
+    "title": "Informes d'Esdeveniments de Futbol",
+    "selectMatch": "Seleccionar un partit",
+    "noEventsFound": "No s'han trobat esdeveniments amb els filtres actuals",
+    "filters": {
+      "selectMatch": "Seleccionar Partit",
+      "allMatches": "Tots els Partits",
+      "selectLeg": "Seleccionar Volta",
+      "allLegs": "Totes les Voltes",
+      "legNumber": "Volta {{number}}",
+      "selectPlayers": "Seleccionar Jugadors",
+      "multipleSelectHint": "Mantén premut Ctrl/Cmd per seleccionar diversos jugadors",
+      "selectTeam": "Seleccionar Equip",
+      "allTeams": "Tots els Equips",
+      "selectTeamSide": "Seleccionar Costat de l'Equip",
+      "bothSides": "Ambdós Costats",
+      "playerNumbers": "Números anteriors: {{numbers}}"
+    },
+    "stats": {
+      "title": "Estadístiques del Partit",
+      "noData": "No hi ha estadístiques disponibles"
+    },
+    "heatmaps": {
+      "title": "Mapes de Calor",
+      "shots": "Xuts",
+      "fouls": "Faltes",
+      "goals": "Gols",
+      "clickToView": "Fes clic a un partit per veure els mapes de calor"
+    },
+    "xg": {
+      "title": "Gols Esperats (xG)",
+      "noMatch": "Selecciona un partit per veure estadístiques xG",
+      "actual": "Real",
+      "vs": "vs",
+      "shotMap": "Mapa de Qualitat de Xuts",
+      "legend": "Mida/Opacitat = Valor xG",
+      "performance": {
+        "overperformed": "{{team}} ha superat el seu xG",
+        "underperformed": "{{team}} no ha arribat al seu xG"
+      }
+    },
+    "export": {
+      "title": "Exportar Dades",
+      "csv": "Exportar CSV",
+      "pdf": "Exportar PDF"
+    },
+    "summary": {
+      "title": "Resum del Partit",
+      "stat": "Estadística"
+    }
+  }
+}

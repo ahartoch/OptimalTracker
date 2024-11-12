@@ -1,0 +1,171 @@
+{
+  "navigation": {
+    "home": "Home",
+    "record": "Record Events",
+    "reports": "View Reports"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Interface Language",
+    "clubEmblem": "Club Emblem",
+    "uploadImage": "Upload Image",
+    "imageRecommendation": "Recommended: Square image, max 1MB",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "clearData": {
+      "title": "Clear Match Data",
+      "description": "Remove all recorded matches and start fresh",
+      "button": "Clear All Data",
+      "confirmTitle": "Clear All Match Data?",
+      "confirmMessage": "This will permanently delete all recorded matches. This action cannot be undone.",
+      "confirm": "Yes, Clear Data"
+    },
+    "categories": {
+      "title": "Match Categories",
+      "enterNew": "Enter new category",
+      "add": "Add"
+    }
+  },
+  "home": {
+    "title": "Soccer Events Recorder",
+    "subtitle": "Record and analyze soccer match events with ease",
+    "features": {
+      "recording": {
+        "title": "Real-time Recording",
+        "description": "Record match events as they happen with precise positioning"
+      },
+      "players": {
+        "title": "Player Management",
+        "description": "Track player substitutions and manage team rosters"
+      },
+      "analysis": {
+        "title": "Match Analysis",
+        "description": "Generate heat maps and detailed event reports"
+      }
+    }
+  },
+  "match": {
+    "setup": {
+      "title": "Start New Match",
+      "homeTeam": "Home Team",
+      "awayTeam": "Away Team",
+      "enterTeamName": "Enter team name",
+      "players": {
+        "title": "Add Players",
+        "import": "Import Players",
+        "selectTeam": "Select Team for Import",
+        "pasteList": "Paste Player List",
+        "noPlayers": "No players added yet",
+        "playerCount": "{{count}}/20 Players"
+      },
+      "startMatch": "Start Match",
+      "legNumber": "Leg Number",
+      "category": "Match Category",
+      "selectCategory": "Select a category",
+      "enterCategory": "Enter category name"
+    },
+    "controls": {
+      "pause": "Pause",
+      "resume": "Resume",
+      "secondHalf": "Start Second Half",
+      "endMatch": "End Match",
+      "startTimer": "Start Timer",
+      "viewReport": "View Match Report"
+    },
+    "events": {
+      "title": "Event Controls",
+      "goal": "Goal",
+      "shot": "Shot",
+      "foul": "Foul",
+      "corner": "Corner",
+      "yellowCard": "Yellow Card",
+      "redCard": "Red Card",
+      "injury": "Injury",
+      "offside": "Offside",
+      "assist": "Assist",
+      "selectEvent": "Select Event Type",
+      "selectTeam": "Select Team",
+      "selectPlayer": "Select Player",
+      "clickToRecord": "Click on the pitch to record an event",
+      "list": {
+        "title": "Event List",
+        "playerEvent": "{{name}} ({{number}})",
+        "unknownPlayer": "Unknown Player",
+        "position": "({{x}}%, {{y}}%)",
+        "noEvents": "No events recorded yet"
+      },
+      "visibleEvents": "Show Events"
+    },
+    "status": {
+      "finished": "Match Finished",
+      "firstHalf": "First Half",
+      "secondHalf": "Second Half"
+    },
+    "substitutions": {
+      "title": "Substitution Windows",
+      "request": "Request Substitution",
+      "windowsUsed": "{{count}}/3 used",
+      "matchFinished": "Match is finished - no more substitutions allowed"
+    },
+    "score": {
+      "home": "Home",
+      "away": "Away",
+      "vs": "vs"
+    },
+    "settings": {
+      "matchLength": "Match Length",
+      "minutes": "minutes"
+    }
+  },
+  "reports": {
+    "title": "Soccer Event Reports",
+    "selectMatch": "Select a match",
+    "noEventsFound": "No events found with current filters",
+    "filters": {
+      "selectMatch": "Select Match",
+      "allMatches": "All Matches",
+      "selectLeg": "Select Leg",
+      "allLegs": "All Legs",
+      "legNumber": "Leg {{number}}",
+      "selectPlayers": "Select Players",
+      "multipleSelectHint": "Hold Ctrl/Cmd to select multiple players",
+      "selectTeam": "Select Team",
+      "allTeams": "All Teams",
+      "selectTeamSide": "Select Team Side",
+      "bothSides": "Both Sides",
+      "playerNumbers": "Previous numbers: {{numbers}}"
+    },
+    "stats": {
+      "title": "Match Statistics",
+      "noData": "No statistics available"
+    },
+    "heatmaps": {
+      "title": "Heat Maps",
+      "shots": "Shots",
+      "fouls": "Fouls",
+      "goals": "Goals",
+      "clickToView": "Click on a match to view heat maps"
+    },
+    "xg": {
+      "title": "Expected Goals (xG)",
+      "noMatch": "Select a match to view xG stats",
+      "actual": "Actual",
+      "vs": "vs",
+      "shotMap": "Shot Quality Map",
+      "legend": "Size/Opacity = xG Value",
+      "performance": {
+        "overperformed": "{{team}} outperformed their xG",
+        "underperformed": "{{team}} underperformed their xG"
+      }
+    },
+    "export": {
+      "title": "Export Data",
+      "csv": "Export CSV",
+      "pdf": "Export PDF"
+    },
+    "summary": {
+      "title": "Match Summary",
+      "stat": "Statistic"
+    }
+  }
+}

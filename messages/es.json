@@ -1,0 +1,155 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "record": "Registrar Eventos",
+    "reports": "Ver Informes"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma de la Interfaz",
+    "clubEmblem": "Escudo del Club",
+    "uploadImage": "Subir Imagen",
+    "imageRecommendation": "Recomendado: Imagen cuadrada, máx 1MB",
+    "save": "Guardar Cambios",
+    "cancel": "Cancelar",
+    "clearData": {
+      "title": "Borrar Datos de Partidos",
+      "description": "Eliminar todos los partidos registrados y empezar de nuevo",
+      "button": "Borrar Todos los Datos",
+      "confirmTitle": "¿Borrar Todos los Datos de Partidos?",
+      "confirmMessage": "Esto eliminará permanentemente todos los partidos registrados. Esta acción no se puede deshacer.",
+      "confirm": "Sí, Borrar Datos"
+    },
+    "categories": {
+      "title": "Categorías de Partidos",
+      "enterNew": "Introducir nueva categoría",
+      "add": "Añadir"
+    }
+  },
+  "home": {
+    "title": "Registrador de Eventos de Fútbol",
+    "subtitle": "Registra y analiza eventos de partidos de fútbol con facilidad",
+    "features": {
+      "recording": {
+        "title": "Registro en Tiempo Real",
+        "description": "Registra eventos del partido mientras suceden con posicionamiento preciso"
+      },
+      "players": {
+        "title": "Gestión de Jugadores",
+        "description": "Controla sustituciones y gestiona plantillas de equipos"
+      },
+      "analysis": {
+        "title": "Análisis de Partidos",
+        "description": "Genera mapas de calor e informes detallados de eventos"
+      }
+    }
+  },
+  "match": {
+    "setup": {
+      "title": "Iniciar Nuevo Partido",
+      "homeTeam": "Equipo Local",
+      "awayTeam": "Equipo Visitante",
+      "enterTeamName": "Introduce nombre del equipo",
+      "players": {
+        "title": "Añadir Jugadores",
+        "import": "Importar Jugadores",
+        "selectTeam": "Seleccionar Equipo para Importar",
+        "pasteList": "Pegar Lista de Jugadores",
+        "noPlayers": "No hay jugadores añadidos",
+        "playerCount": "{{count}}/20 Jugadores"
+      },
+      "startMatch": "Comenzar Partido",
+      "category": "Categoría del Partido",
+      "selectCategory": "Seleccionar una categoría",
+      "enterCategory": "Introducir nombre de categoría"
+    },
+    "settings": {
+      "matchLength": "Duración del Partido",
+      "minutes": "minutos"
+    },
+    "events": {
+      "title": "Controles de Eventos",
+      "goal": "Gol",
+      "foul": "Falta",
+      "corner": "Córner",
+      "selectEvent": "Seleccionar Tipo de Evento",
+      "selectTeam": "Seleccionar Equipo",
+      "selectPlayer": "Seleccionar Jugador",
+      "clickToRecord": "Haz clic en el campo para registrar un evento",
+      "list": {
+        "title": "Lista de Eventos",
+        "playerEvent": "{{name}} ({{number}})",
+        "unknownPlayer": "Jugador Desconocido",
+        "position": "({{x}}%, {{y}}%)",
+        "noEvents": "No hay eventos registrados aún"
+      }
+    },
+    "status": {
+      "finished": "Partido Finalizado",
+      "firstHalf": "Primera Parte",
+      "secondHalf": "Segunda Parte"
+    },
+    "substitutions": {
+      "title": "Ventanas de Sustitución",
+      "request": "Solicitar Sustitución",
+      "windowsUsed": "{{count}}/3 usadas",
+      "matchFinished": "Partido finalizado - no se permiten más sustituciones"
+    },
+    "score": {
+      "home": "Local",
+      "away": "Visitante",
+      "vs": "vs"
+    }
+  },
+  "reports": {
+    "title": "Informes de Eventos de Fútbol",
+    "selectMatch": "Seleccionar un partido",
+    "noEventsFound": "No se encontraron eventos con los filtros actuales",
+    "filters": {
+      "selectMatch": "Seleccionar Partido",
+      "allMatches": "Todos los Partidos",
+      "selectLeg": "Seleccionar Vuelta",
+      "allLegs": "Todas las Vueltas",
+      "legNumber": "Vuelta {{number}}",
+      "selectPlayers": "Seleccionar Jugadores",
+      "multipleSelectHint": "Mantén pulsado Ctrl/Cmd para seleccionar varios jugadores",
+      "selectTeam": "Seleccionar Equipo",
+      "allTeams": "Todos los Equipos",
+      "selectTeamSide": "Seleccionar Lado del Equipo",
+      "bothSides": "Ambos Lados",
+      "playerNumbers": "Números anteriores: {{numbers}}"
+    },
+    "stats": {
+      "title": "Estadísticas del Partido",
+      "noData": "No hay estadísticas disponibles"
+    },
+    "heatmaps": {
+      "title": "Mapas de Calor",
+      "shots": "Tiros",
+      "fouls": "Faltas",
+      "goals": "Goles",
+      "clickToView": "Haz clic en un partido para ver los mapas de calor"
+    },
+    "xg": {
+      "title": "Goles Esperados (xG)",
+      "noMatch": "Selecciona un partido para ver estadísticas xG",
+      "actual": "Real",
+      "vs": "vs",
+      "shotMap": "Mapa de Calidad de Tiros",
+      "legend": "Tamaño/Opacidad = Valor xG",
+      "performance": {
+        "overperformed": "{{team}} superó su xG",
+        "underperformed": "{{team}} no alcanzó su xG"
+      }
+    },
+    "export": {
+      "title": "Exportar Datos",
+      "csv": "Exportar CSV",
+      "pdf": "Exportar PDF"
+    },
+    "summary": {
+      "title": "Resumen del Partido",
+      "stat": "Estadística"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1e40af;
+  --color-secondary: #f97316;
+  --color-background: #f3f4f6;
+  --color-pitch: #4caf50;
+  --color-text: #1f2937;
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive text sizes */
+@layer base {
+  html {
+    font-size: 14px;
+    @screen sm {
+      font-size: 15px;
+    }
+    @screen lg {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Touch-friendly styles for mobile */
+@media (hover: none) {
+  .hover\:bg-secondary:active {
+    background-color: var(--color-secondary);
+  }
+}
+
+/* Responsive container padding */
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @screen sm {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @screen lg {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Responsive grid layouts */
+.responsive-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  @screen md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @screen lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Touch-friendly buttons */
+.touch-button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 1rem;
+  @screen md {
+    min-height: 36px;
+    min-width: 36px;
+  }
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.text-primary {
+  color: var(--color-text);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+/* Soccer pitch specific styles */
+.soccer-pitch {
+  background-color: var(--color-pitch);
+}
