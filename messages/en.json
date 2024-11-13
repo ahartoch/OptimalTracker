@@ -45,6 +45,7 @@
     }
   },
   "match": {
+    "title": "Match in Progress",
     "setup": {
       "title": "Start New Match",
       "homeTeam": "Home Team",
@@ -56,13 +57,39 @@
         "selectTeam": "Select Team for Import",
         "pasteList": "Paste Player List",
         "noPlayers": "No players added yet",
-        "playerCount": "{{count}}/20 Players"
+        "playerCount": "{{count}}/20 Players",
+        "edit": "Edit player",
+        "remove": "Remove player",
+        "save": "Save changes",
+        "cancel": "Cancel changes",
+        "tooManyPlayers": "Can only add {{available}} more players to this team",
+        "importInstructions": "Enter one player per line in format: number name (e.g., '1 John Smith')",
+        "selectTeamPrompt": "Select team for import",
+        "importMethod": "Choose Import Method",
+        "downloadTemplate": "Download CSV Template",
+        "uploadCsv": "Upload CSV File",
+        "or": "OR",
+        "csvFormat": "CSV must have columns: Number, Name",
+        "importFormat": "Enter players in either format:\n\n1 John Smith\n2 Jane Doe\n\nOR\n\n1\nJohn Smith\n2\nJane Doe"
       },
-      "startMatch": "Start Match",
+      "start": "Start Match",
       "legNumber": "Leg Number",
       "category": "Match Category",
-      "selectCategory": "Select a category",
-      "enterCategory": "Enter category name"
+      "selectCategory": "Select Category",
+      "enterCategory": "Enter category name",
+      "categories": {
+        "league": "League",
+        "cup": "Cup",
+        "friendly": "Friendly",
+        "U19": "U19 (Juvenil)",
+        "U16": "U16 (Cadete)",
+        "U14": "U14 (Infantil)"
+      },
+      "homeSubstitutionWindows": "Home Team Substitution Windows",
+      "awaySubstitutionWindows": "Away Team Substitution Windows",
+      "ageCategory": "Age Category",
+      "matchLength": "Match Length",
+      "minutes": "minutes"
     },
     "controls": {
       "pause": "Pause",

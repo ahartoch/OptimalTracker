@@ -45,6 +45,7 @@
     }
   },
   "match": {
+    "title": "Partit en Curs",
     "setup": {
       "title": "Iniciar Nou Partit",
       "homeTeam": "Equip Local",
@@ -55,13 +56,40 @@
         "import": "Importar Jugadors",
         "selectTeam": "Seleccionar Equip per Importar",
         "pasteList": "Enganxa Llista de Jugadors",
-        "noPlayers": "No hi ha jugadors afegits",
-        "playerCount": "{{count}}/20 Jugadors"
+        "noPlayers": "Encara no hi ha jugadors afegits",
+        "playerCount": "{{count}}/20 Jugadors",
+        "edit": "Editar jugador",
+        "remove": "Eliminar jugador",
+        "save": "Desar canvis",
+        "cancel": "Cancel·lar canvis",
+        "tooManyPlayers": "Només es poden afegir {{available}} jugadors més a aquest equip",
+        "importInstructions": "Introdueix un jugador per línia en format: número nom (ex., '1 Joan Garcia')",
+        "selectTeamPrompt": "Seleccionar equip per importar",
+        "importMethod": "Triar Mètode d'Importació",
+        "downloadTemplate": "Descarregar Plantilla CSV",
+        "uploadCsv": "Pujar Arxiu CSV",
+        "or": "O",
+        "csvFormat": "El CSV ha de tenir columnes: Número, Nom",
+        "importFormat": "Introdueix jugadors en qualsevol format:\n\n1 Joan Garcia\n2 Maria López\n\nO\n\n1\nJoan Garcia\n2\nMaria López"
       },
-      "startMatch": "Començar Partit",
+      "start": "Començar Partit",
+      "legNumber": "Número de Jornada",
       "category": "Categoria del Partit",
-      "selectCategory": "Seleccionar una categoria",
-      "enterCategory": "Introduir nom de categoria"
+      "selectCategory": "Seleccionar Categoria",
+      "enterCategory": "Introduir nom de categoria",
+      "categories": {
+        "league": "Lliga",
+        "cup": "Copa",
+        "friendly": "Amistós",
+        "U19": "Juvenil",
+        "U16": "Cadet",
+        "U14": "Infantil"
+      },
+      "homeSubstitutionWindows": "Finestres de Substitució Equip Local",
+      "awaySubstitutionWindows": "Finestres de Substitució Equip Visitant",
+      "ageCategory": "Categoria d'Edat",
+      "matchLength": "Durada del Partit",
+      "minutes": "minuts"
     },
     "events": {
       "title": "Controls d'Esdeveniments",
@@ -108,9 +136,9 @@
     "filters": {
       "selectMatch": "Seleccionar Partit",
       "allMatches": "Tots els Partits",
-      "selectLeg": "Seleccionar Volta",
-      "allLegs": "Totes les Voltes",
-      "legNumber": "Volta {{number}}",
+      "selectLeg": "Seleccionar Jornada",
+      "allLegs": "Totes les Jornades",
+      "legNumber": "Jornada {{number}}",
       "selectPlayers": "Seleccionar Jugadors",
       "multipleSelectHint": "Mantén premut Ctrl/Cmd per seleccionar diversos jugadors",
       "selectTeam": "Seleccionar Equip",

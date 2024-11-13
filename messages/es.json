@@ -45,6 +45,7 @@
     }
   },
   "match": {
+    "title": "Partido en Curso",
     "setup": {
       "title": "Iniciar Nuevo Partido",
       "homeTeam": "Equipo Local",
@@ -56,12 +57,39 @@
         "selectTeam": "Seleccionar Equipo para Importar",
         "pasteList": "Pegar Lista de Jugadores",
         "noPlayers": "No hay jugadores añadidos",
-        "playerCount": "{{count}}/20 Jugadores"
+        "playerCount": "{{count}}/20 Jugadores",
+        "edit": "Editar jugador",
+        "remove": "Eliminar jugador",
+        "save": "Guardar cambios",
+        "cancel": "Cancelar cambios",
+        "tooManyPlayers": "Solo se pueden añadir {{available}} jugadores más a este equipo",
+        "importInstructions": "Introduce un jugador por línea en formato: número nombre (ej., '1 Juan García')",
+        "selectTeamPrompt": "Seleccionar equipo para importar",
+        "importMethod": "Elegir Método de Importación",
+        "downloadTemplate": "Descargar Plantilla CSV",
+        "uploadCsv": "Subir Archivo CSV",
+        "or": "O",
+        "csvFormat": "El CSV debe tener columnas: Número, Nombre",
+        "importFormat": "Introduce jugadores en cualquier formato:\n\n1 Juan García\n2 María López\n\nO\n\n1\nJuan García\n2\nMaría López"
       },
-      "startMatch": "Comenzar Partido",
+      "start": "Comenzar Partido",
+      "legNumber": "Número de Jornada",
       "category": "Categoría del Partido",
-      "selectCategory": "Seleccionar una categoría",
-      "enterCategory": "Introducir nombre de categoría"
+      "selectCategory": "Seleccionar Categoría",
+      "enterCategory": "Introducir nombre de categoría",
+      "categories": {
+        "league": "Liga",
+        "cup": "Copa",
+        "friendly": "Amistoso",
+        "U19": "Juvenil",
+        "U16": "Cadete",
+        "U14": "Infantil"
+      },
+      "homeSubstitutionWindows": "Ventanas de Sustitución Equipo Local",
+      "awaySubstitutionWindows": "Ventanas de Sustitución Equipo Visitante",
+      "ageCategory": "Categoría de Edad",
+      "matchLength": "Duración del Partido",
+      "minutes": "minutos"
     },
     "settings": {
       "matchLength": "Duración del Partido",
@@ -108,9 +136,9 @@
     "filters": {
       "selectMatch": "Seleccionar Partido",
       "allMatches": "Todos los Partidos",
-      "selectLeg": "Seleccionar Vuelta",
-      "allLegs": "Todas las Vueltas",
-      "legNumber": "Vuelta {{number}}",
+      "selectLeg": "Seleccionar Jornada",
+      "allLegs": "Todas las Jornadas",
+      "legNumber": "Jornada {{number}}",
       "selectPlayers": "Seleccionar Jugadores",
       "multipleSelectHint": "Mantén pulsado Ctrl/Cmd para seleccionar varios jugadores",
       "selectTeam": "Seleccionar Equipo",

@@ -25,6 +25,9 @@ export interface GameEvent {
   matchId: string;
 }
 
+export type MatchLength = 70 | 80 | 90;
+export type AgeCategory = "U14" | "U16" | "U19";
+
 export interface Match {
   id: string;
   homeTeam: string;
@@ -39,6 +42,8 @@ export interface Match {
   players: Player[];
   legNumber: number;
   category: string;
+  matchLength: MatchLength;
+  ageCategory: AgeCategory;
 }
 
 // Re-export GameEvent as Event for backward compatibility

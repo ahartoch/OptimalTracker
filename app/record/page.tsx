@@ -2,19 +2,17 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BiHome } from "react-icons/bi";
-import TeamSetup from "../../components/TeamSetup";
-import SoccerPitch from "../../components/SoccerPitch";
-import ScoreBoard from "../../components/ScoreBoard";
-import Timer from "../../components/Timer";
-import EventList from "../../components/EventList";
-import SubstitutionTracker from "../../components/SubstitutionTracker";
-import { Match, Event, Player } from "../../lib/types";
-import { useLocalStorage } from "../../lib/useLocalStorage";
-import { useLanguage } from "../../contexts/LanguageContext";
+import { Match, Player, GameEvent } from "@/lib/types";
+import TeamSetup from "@/components/TeamSetup";
+import SoccerPitch from "@/components/SoccerPitch";
+import ScoreBoard from "@/components/ScoreBoard";
+import EventList from "@/components/EventList";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { BiFootball } from "react-icons/bi";
+import SubstitutionTracker from "@/components/SubstitutionTracker";
+import Timer from "@/components/Timer";
 
 export default function RecordPage() {
-  const [matches, setMatches] = useLocalStorage<Match[]>("soccerMatches", []);
   const [currentMatch, setCurrentMatch] = useState<Match | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [shouldStartTimer, setShouldStartTimer] = useState(false);
@@ -24,7 +22,12 @@ export default function RecordPage() {
     homeTeam: string,
     awayTeam: string,
     players: Player[],
-    legNumber: number
+    homeSubstitutionWindows: number,
+    awaySubstitutionWindows: number,
+    legNumber: number,
+    category: string,
+    matchLength: number,
+    ageCategory: string
   ) => {
     const newMatch: Match = {
       id: Date.now().toString(),
@@ -33,173 +36,156 @@ export default function RecordPage() {
       homeScore: 0,
       awayScore: 0,
       currentHalf: 1,
-      homeSubstitutionWindows: 0,
-      awaySubstitutionWindows: 0,
+      homeSubstitutionWindows,
+      awaySubstitutionWindows,
       startTime: Date.now(),
       events: [],
-      players: players,
-      legNumber: legNumber,
+      players,
+      legNumber,
+      category,
+      matchLength,
+      ageCategory,
     };
+
     setCurrentMatch(newMatch);
-    setMatches([...matches, newMatch]);
-    setIsRunning(false);
   };
 
-  const handleStartTimer = () => {
-    setIsRunning(true);
-    setShouldStartTimer(true);
-  };
+  const handleHalfEnd = () => {
+    if (currentMatch && currentMatch.currentHalf === 1) {
+      const updatedMatch = {
+        ...currentMatch,
+        currentHalf: 2,
+      };
+      setCurrentMatch(updatedMatch);
+      setIsRunning(false);
+      setShouldStartTimer(false);
 
-  const handleEventAdded = (event: Event) => {
-    if (!currentMatch) return;
-
-    const updatedMatch = {
-      ...currentMatch,
-      events: [...currentMatch.events, event],
-    };
-
-    if (event.type === "goal") {
-      if (event.team === "home") {
-        updatedMatch.homeScore++;
-      } else {
-        updatedMatch.awayScore++;
-      }
+      // Update match in localStorage
+      const matches = JSON.parse(localStorage.getItem("matches") || "[]");
+      const updatedMatches = matches.map((m: Match) =>
+        m.id === updatedMatch.id ? updatedMatch : m
+      );
+      localStorage.setItem("matches", JSON.stringify(updatedMatches));
     }
-
-    setCurrentMatch(updatedMatch);
-    setMatches(
-      matches.map((m) => (m.id === updatedMatch.id ? updatedMatch : m))
-    );
-  };
-
-  const handleSubstitutionWindowRequested = (team: "home" | "away") => {
-    if (!currentMatch) return;
-
-    const updatedMatch = {
-      ...currentMatch,
-      homeSubstitutionWindows:
-        team === "home"
-          ? currentMatch.homeSubstitutionWindows + 1
-          : currentMatch.homeSubstitutionWindows,
-      awaySubstitutionWindows:
-        team === "away"
-          ? currentMatch.awaySubstitutionWindows + 1
-          : currentMatch.awaySubstitutionWindows,
-    };
-
-    setCurrentMatch(updatedMatch);
-    setMatches(
-      matches.map((m) => (m.id === updatedMatch.id ? updatedMatch : m))
-    );
-  };
-
-  const handleHalfChange = () => {
-    if (!currentMatch) return;
-    const updatedMatch = {
-      ...currentMatch,
-      currentHalf: 2 as const,
-    };
-    setCurrentMatch(updatedMatch);
-    setMatches(
-      matches.map((m) => (m.id === updatedMatch.id ? updatedMatch : m))
-    );
   };
 
   const handleMatchEnd = () => {
-    if (!currentMatch) return;
-    const updatedMatch = {
-      ...currentMatch,
-      currentHalf: "finished" as const,
-    };
-    setCurrentMatch(updatedMatch);
-    setMatches(
-      matches.map((m) => (m.id === updatedMatch.id ? updatedMatch : m))
-    );
-    setIsRunning(false);
+    if (currentMatch) {
+      const updatedMatch = {
+        ...currentMatch,
+        currentHalf: "finished" as const,
+      };
+      setCurrentMatch(updatedMatch);
+      setIsRunning(false);
+      setShouldStartTimer(false);
+
+      // Update match in localStorage
+      const matches = JSON.parse(localStorage.getItem("matches") || "[]");
+      const updatedMatches = matches.map((m: Match) =>
+        m.id === updatedMatch.id ? updatedMatch : m
+      );
+      localStorage.setItem("matches", JSON.stringify(updatedMatches));
+    }
+  };
+
+  const handleEventAdded = (event: GameEvent) => {
+    if (currentMatch) {
+      const updatedMatch = {
+        ...currentMatch,
+        events: [...currentMatch.events, event],
+      };
+
+      // Update scores if it's a goal
+      if (event.type === "goal") {
+        if (event.team === "home") {
+          updatedMatch.homeScore++;
+        } else {
+          updatedMatch.awayScore++;
+        }
+      }
+
+      setCurrentMatch(updatedMatch);
+
+      // Update match in localStorage
+      const matches = JSON.parse(localStorage.getItem("matches") || "[]");
+      const updatedMatches = matches.map((m: Match) =>
+        m.id === updatedMatch.id ? updatedMatch : m
+      );
+      localStorage.setItem("matches", JSON.stringify(updatedMatches));
+    }
+  };
+
+  const handleStartTimer = () => {
+    setShouldStartTimer(true);
+    setIsRunning(true);
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto space-y-6">
-        {!currentMatch ? (
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h1 className="text-2xl font-bold text-primary mb-6">
-              {t("match.setup.title")}
+    <div className="container mx-auto py-6 px-4 space-y-6">
+      {!currentMatch ? (
+        <TeamSetup onStartMatch={handleStartMatch} />
+      ) : (
+        <>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-primary">
+              {t("match.title")}
             </h1>
-            <TeamSetup onSetupComplete={handleStartMatch} />
+            <Link
+              href="/reports"
+              className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded inline-flex items-center space-x-2"
+            >
+              <BiFootball className="h-5 w-5" />
+              <span>{t("navigation.reports")}</span>
+            </Link>
           </div>
-        ) : (
-          <div className="space-y-6">
-            {/* Top Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <Timer
-                isRunning={isRunning}
-                currentHalf={currentMatch.currentHalf}
-                onStartMatch={handleStartTimer}
-              />
-              <ScoreBoard match={currentMatch} />
-              <SubstitutionTracker
-                match={currentMatch}
-                onSubstitutionWindowRequested={
-                  handleSubstitutionWindowRequested
-                }
-              />
-            </div>
 
-            {/* Match Controls */}
-            <div className="bg-white p-4 rounded-lg shadow-lg flex justify-center gap-4">
-              <button
-                onClick={() => setIsRunning(!isRunning)}
-                className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
-                disabled={currentMatch.currentHalf === "finished"}
-              >
-                {t(`match.controls.${isRunning ? "pause" : "resume"}`)}
-              </button>
-              {currentMatch.currentHalf === 1 && (
-                <button
-                  onClick={handleHalfChange}
-                  className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
-                >
-                  {t("match.controls.secondHalf")}
-                </button>
-              )}
-              {currentMatch.currentHalf === 2 && (
-                <button
-                  onClick={handleMatchEnd}
-                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-                >
-                  {t("match.controls.endMatch")}
-                </button>
-              )}
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex-1">
+                  <ScoreBoard match={currentMatch} />
+                </div>
+                <div className="flex-1">
+                  {!shouldStartTimer ? (
+                    <button
+                      onClick={handleStartTimer}
+                      className="w-full bg-primary hover:bg-secondary text-white font-bold py-4 px-6 rounded transition-colors"
+                    >
+                      {t("match.controls.startTimer")}
+                    </button>
+                  ) : (
+                    <Timer
+                      isRunning={isRunning}
+                      currentHalf={currentMatch.currentHalf}
+                      matchLength={currentMatch.matchLength}
+                      onHalfEnd={handleHalfEnd}
+                      onMatchEnd={handleMatchEnd}
+                    />
+                  )}
+                </div>
+              </div>
 
-            {/* Soccer Pitch */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <SoccerPitch
                 match={currentMatch}
                 onEventAdded={handleEventAdded}
+                isRunning={shouldStartTimer && isRunning}
               />
-            </div>
 
-            {/* Event List */}
-            <div className="grid grid-cols-1 gap-6">
               <EventList
                 events={currentMatch.events}
                 legNumber={currentMatch.legNumber}
               />
             </div>
-          </div>
-        )}
 
-        {/* Home Button */}
-        <Link
-          href="/"
-          className="fixed bottom-4 right-4 bg-primary hover:bg-secondary text-white p-3 rounded-full shadow-lg transition-colors duration-300"
-          aria-label={t("navigation.home")}
-        >
-          <BiHome className="h-6 w-6" />
-        </Link>
-      </div>
+            <div className="space-y-6">
+              <SubstitutionTracker
+                match={currentMatch}
+                onSubstitutionWindowRequested={() => {}}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
